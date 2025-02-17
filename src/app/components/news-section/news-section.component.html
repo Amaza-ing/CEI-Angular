@@ -1,0 +1,23 @@
+<section>
+  <h2 [id]="newsId">{{ newsSectionTitle }}</h2>
+  <h3>Texto: {{ text }}</h3>
+
+  <button (click)="sayHello()">Di Hola!</button>
+  <h3>
+    Páginas:
+    <button (click)="substractOneToPages()">-</button>
+    {{ pageNumber }}
+    <button (click)="addOneToPages()">+</button>
+  </h3>
+  <h4>Idioma: {{ languages[0] }}</h4>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente laudantium
+    repellat at magnam incidunt repudiandae magni, dicta cumque tempore veniam.
+  </p>
+
+  <aside>
+    <input (input)="changeText($event)" type="text"/>
+    <h4>Producto: {{ product.name }}</h4>
+    <h5>Precio: {{ product.price }}</h5>
+  </aside>
+</section>
