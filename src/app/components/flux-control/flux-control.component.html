@@ -1,0 +1,40 @@
+@if (condition) {
+<h2>La condición se cumple</h2>
+} @else {
+<h2>La condición no se cumple</h2>
+
+} @if(user.age >= 18) {
+<p>Eres mayor de edad</p>
+<div>
+  <h3>asfasdf</h3>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed, in!</p>
+</div>
+} @else {
+<p>No puedes entrar aquí</p>
+}
+
+<button (click)="login()">Login</button>
+
+@if (user.username) {
+  <h2>Bienvenida {{ user.username }}</h2>
+}
+
+@if (productNames.length > 0) {
+  <h2>Sí que hay productos</h2>
+}
+
+@for (product of productNames; track $index) {
+  <p>{{ product }}</p>
+}
+
+@for (product of products; track product.id) {
+  <div>
+    <h3>{{ product.name }}</h3>
+    @if (product.isAvailable) {
+      <h4>{{ product.price }}€</h4>
+    } @else {
+      <h4>No disponible</h4>
+    }
+  </div>
+}
+
