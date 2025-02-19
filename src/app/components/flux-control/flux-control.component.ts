@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
+import { ChildComponent } from '../child/child.component';
 
 @Component({
   selector: 'app-flux-control',
-  imports: [],
+  imports: [ChildComponent],
   templateUrl: './flux-control.component.html',
   styleUrl: './flux-control.component.css'
 })
@@ -41,6 +42,26 @@ export class FluxControlComponent {
       age: 25
     }
   }
+
+  // Signals
+
+  counter = signal(0);
+
+  increment() {
+    this.counter.set(this.counter() + 1);
+  }
+
+  updateCounter() {
+    this.counter.update((number: number) => number + 1);
+  }
+
+  price = signal(100);
+  quantity = signal(0);
+  total = computed(() => this.price() * this.quantity());
+
+  increaseQuantity() {
+    this.quantity.set(this.quantity() + 1);
+  }
 }
 
 // Truthy
@@ -57,3 +78,6 @@ export class FluxControlComponent {
 // 0;
 // undefined;
 // null;
+
+
+

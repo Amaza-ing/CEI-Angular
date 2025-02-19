@@ -2,7 +2,6 @@
 <h2>La condición se cumple</h2>
 } @else {
 <h2>La condición no se cumple</h2>
-
 } @if(user.age >= 18) {
 <p>Eres mayor de edad</p>
 <div>
@@ -16,25 +15,41 @@
 <button (click)="login()">Login</button>
 
 @if (user.username) {
-  <h2>Bienvenida {{ user.username }}</h2>
+<h2>Bienvenida {{ user.username }}</h2>
+} @if (productNames.length > 0) {
+<h2>Sí que hay productos</h2>
+} @for (product of productNames; track $index) {
+<p>{{ product }}</p>
+} @for (product of products; track product.id) {
+<div>
+  <h3>{{ product.name }}</h3>
+  @if (product.isAvailable) {
+  <h4>{{ product.price }}€</h4>
+  } @else {
+  <h4 class="not-available">No disponible</h4>
+  }
+</div>
+} @for (product of products; track product.id) {
+<app-child></app-child>
 }
 
-@if (productNames.length > 0) {
-  <h2>Sí que hay productos</h2>
-}
+<h3>Counter: {{ counter() }}</h3>
 
-@for (product of productNames; track $index) {
-  <p>{{ product }}</p>
-}
+<button (click)="increment()">+</button>
+<button (click)="updateCounter()">Update</button>
 
-@for (product of products; track product.id) {
-  <div>
-    <h3>{{ product.name }}</h3>
-    @if (product.isAvailable) {
-      <h4>{{ product.price }}€</h4>
-    } @else {
-      <h4>No disponible</h4>
-    }
-  </div>
-}
+<h3>
+  Cantidad {{ quantity() }} <button (click)="increaseQuantity()">+</button>
+</h3>
+<h3>Precio del producto: {{ price() }}€</h3>
+<h3>Total: {{ total() }}</h3>
 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
