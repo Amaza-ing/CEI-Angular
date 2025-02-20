@@ -1,9 +1,15 @@
-<h2>Lista de Películas:</h2>
+<section class="movie-list">
+  <h2>Lista de Películas:</h2>
 
-<ul>
-  @for (movie of movies; track movie.id) {
+  <ul>
+    @for (movie of movies; track movie.id) {
     <li>
-      <app-movie-card [movie]="movie"></app-movie-card>
+      <app-movie-card
+        [movie]="movie"
+        (messageSent)="receiveMsg($event)"
+        (watchlistChange)="toggleWatchlist($event)"
+      ></app-movie-card>
     </li>
-  }
-</ul>
+    }
+  </ul>
+</section>

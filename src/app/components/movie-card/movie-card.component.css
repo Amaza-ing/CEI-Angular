@@ -4,4 +4,17 @@
   padding: 10px;
   width: 400px;
   background-color: lightblue;
+
+  .movie-title {
+    text-align: center;
+  }
+
+  .movie-main {
+    display: flex;
+    justify-content: space-around;
+
+    .movie-img {
+      width: 150px;
+    }
+  }
 }

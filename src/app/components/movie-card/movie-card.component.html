@@ -1,7 +1,16 @@
 <article class="movie-container">
-  <h2>{{ movie.title }}</h2>
-  <div class="movie-info">
-    <h3>Duración: {{ movie.duration }}</h3>
-    <h3>Director: {{ movie.director }}</h3>
+  <h2 class="movie-title">{{ movie.title }}</h2>
+  <div class="movie-main">
+    <div class="movie-info">
+      <h3>Duración: {{ movie.duration }}</h3>
+      <h3>Director: {{ movie.director }}</h3>
+    </div>
+    <img class="movie-img" [src]="movie.img" alt="Imagen de la película" />
   </div>
+  <button (click)="sendMsg()">Emitir mensaje</button>
+  <br>
+  <button (click)="changeWatchlist()">Watchlist</button>
+  @if (movie.isWatchlist) {
+    <span>👁‍🗨</span>
+  }
 </article>
