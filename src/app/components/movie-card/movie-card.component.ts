@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, output, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, output, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-movie-card',
@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, output, Output } from '@angular/core';
   templateUrl: './movie-card.component.html',
   styleUrl: './movie-card.component.css',
 })
-export class MovieCardComponent {
+export class MovieCardComponent implements OnChanges, OnDestroy {
   @Input()
   movie: any = {};
 
@@ -14,6 +14,14 @@ export class MovieCardComponent {
 
   @Output()
   watchlistChange = new EventEmitter<number>();
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("Cambios en el input");    
+  }
+
+  ngOnDestroy(): void {
+    console.log("Componente MovieCard Destruido");    
+  }
 
   sendMsg() {
     this.messageSent.emit('Mensaje desde ' + this.movie.title);

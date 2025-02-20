@@ -9,6 +9,7 @@ import { MovieCardComponent } from "../movie-card/movie-card.component";
 })
 export class MovieListComponent implements OnInit {
   movies: any[];
+  showMovies: boolean = true;
 
    constructor() {
     console.log("Mensaje desde el constructor");
@@ -54,5 +55,20 @@ export class MovieListComponent implements OnInit {
     if (selectedMovie) {
       selectedMovie.isWatchlist = !selectedMovie.isWatchlist;
     }
+  }
+
+  addNewMovie() {
+    this.movies.push({
+      id: 4,
+      title: "Dune",
+      duration: 200,
+      director: "Denis Villeneuve",
+      img: "https://m.media-amazon.com/images/I/61eBiE82dDL._AC_UF1000,1000_QL80_.jpg",
+      isWatchlist: false
+    })
+  }
+
+  toggleMovies() {
+    this.showMovies = !this.showMovies;
   }
 }

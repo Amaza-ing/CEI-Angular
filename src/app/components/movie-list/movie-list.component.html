@@ -1,15 +1,26 @@
 <section class="movie-list">
   <h2>Lista de Películas:</h2>
-
-  <ul>
-    @for (movie of movies; track movie.id) {
-    <li>
-      <app-movie-card
-        [movie]="movie"
-        (messageSent)="receiveMsg($event)"
-        (watchlistChange)="toggleWatchlist($event)"
-      ></app-movie-card>
-    </li>
+  <button (click)="addNewMovie()">Añadir Película</button>
+  <br>
+  <button (click)="toggleMovies()">
+    @if (showMovies) {
+      Ocultar Películas
+    } @else {
+      Mostrar Películas
     }
-  </ul>
+  </button>
+
+  @if (showMovies) {
+    <ul>
+      @for (movie of movies; track movie.id) {
+      <li>
+        <app-movie-card
+          [movie]="movie"
+          (messageSent)="receiveMsg($event)"
+          (watchlistChange)="toggleWatchlist($event)"
+        ></app-movie-card>
+      </li>
+      }
+    </ul>
+  }
 </section>

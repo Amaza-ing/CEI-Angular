@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 
 @Component({
   selector: 'app-news-section',
@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './news-section.component.html',
   styleUrl: './news-section.component.css'
 })
-export class NewsSectionComponent {
+export class NewsSectionComponent implements DoCheck{
   newsSectionTitle: string = "Las Noticias más Novedosas!";
   pageNumber: number = 100;
   hasAnyImage: boolean = false;
@@ -19,6 +19,10 @@ export class NewsSectionComponent {
     name: "Ordenador",
     price: 1000,
     isForSale: true
+  }
+
+  ngDoCheck(): void {
+    console.log("Ha habido cambios en alguna variable");    
   }
 
   sayHello() {
