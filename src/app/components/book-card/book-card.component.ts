@@ -1,4 +1,5 @@
 import { Component, input, Input } from '@angular/core';
+import { Book } from '../../models/Book';
 
 @Component({
   selector: 'app-book-card',
@@ -8,7 +9,11 @@ import { Component, input, Input } from '@angular/core';
 })
 export class BookCardComponent {
   @Input()
-  book: any = {};
+  book: Book = {
+    title: '',
+    pages: 0,
+    author: '',
+  };
 
   // book = input({
   //   title: "",

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieCardComponent } from "../movie-card/movie-card.component";
+import { Movie } from '../../models/Movie';
 
 @Component({
   selector: 'app-movie-list',
@@ -8,7 +9,7 @@ import { MovieCardComponent } from "../movie-card/movie-card.component";
   styleUrl: './movie-list.component.css'
 })
 export class MovieListComponent implements OnInit {
-  movies: any[];
+  movies: Movie[];
   showMovies: boolean = true;
 
    constructor() {

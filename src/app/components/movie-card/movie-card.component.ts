@@ -1,4 +1,14 @@
-import { Component, EventEmitter, Input, OnChanges, OnDestroy, output, Output, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  output,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
+import { Movie } from '../../models/Movie';
 
 @Component({
   selector: 'app-movie-card',
@@ -8,7 +18,14 @@ import { Component, EventEmitter, Input, OnChanges, OnDestroy, output, Output, S
 })
 export class MovieCardComponent implements OnChanges, OnDestroy {
   @Input()
-  movie: any = {};
+  movie: Movie = {
+    id: 0,
+    title: '',
+    duration: 0,
+    director: '',
+    img: '',
+    isWatchlist: false,
+  };
 
   messageSent = output<string>();
 
@@ -16,11 +33,11 @@ export class MovieCardComponent implements OnChanges, OnDestroy {
   watchlistChange = new EventEmitter<number>();
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("Cambios en el input");    
+    console.log('Cambios en el input');
   }
 
   ngOnDestroy(): void {
-    console.log("Componente MovieCard Destruido");    
+    console.log('Componente MovieCard Destruido');
   }
 
   sendMsg() {
