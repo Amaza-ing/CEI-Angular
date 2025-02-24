@@ -1,5 +1,12 @@
-<section class="movie-list">
-  <h2>Lista de Películas:</h2>
+<section class="movie-list" [ngClass]="{'dark': isDark, 'big': false}">
+  <span class="btn" (click)="toggleDark()">
+    @if (isDark) {
+      🌞
+    } @else {
+      🌑
+    }
+  </span>
+  <h2 [ngClass]="myClass">Lista de Películas:</h2>
   <button (click)="addNewMovie()">Añadir Película</button>
   <br>
   <button (click)="toggleMovies()">

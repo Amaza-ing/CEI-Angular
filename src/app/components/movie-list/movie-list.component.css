@@ -1,3 +1,19 @@
 .movie-list {
   padding: 10px 20px;
 }
+
+.dark {
+  background-color: darkslategray;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.highlighted {
+  background-color: yellow;
+}
+
+.big {
+  font-size: 2em;
+}

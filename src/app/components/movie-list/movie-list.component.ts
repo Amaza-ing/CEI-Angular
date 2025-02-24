@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieCardComponent } from "../movie-card/movie-card.component";
 import { Movie } from '../../models/Movie';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-movie-list',
-  imports: [MovieCardComponent],
+  imports: [MovieCardComponent, NgClass],
   templateUrl: './movie-list.component.html',
   styleUrl: './movie-list.component.css'
 })
 export class MovieListComponent implements OnInit {
   movies: Movie[];
   showMovies: boolean = true;
+  myClass: string[] = ["highlighted", "big"];
+  isDark: boolean = false;
 
    constructor() {
     console.log("Mensaje desde el constructor");
@@ -71,5 +74,9 @@ export class MovieListComponent implements OnInit {
 
   toggleMovies() {
     this.showMovies = !this.showMovies;
+  }
+
+  toggleDark() {
+    this.isDark = !this.isDark;
   }
 }
