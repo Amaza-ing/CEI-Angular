@@ -1,33 +1,72 @@
-<section class="movie-list" [ngClass]="{'dark': isDark, 'big': false}">
+<section class="movie-list" [ngClass]="{ dark: isDark, big: false }">
   <span class="btn" (click)="toggleDark()">
-    @if (isDark) {
-      🌞
-    } @else {
-      🌑
-    }
+    @if (isDark) { 🌞 } @else { 🌑 }
   </span>
   <h2 [ngClass]="myClass">Lista de Películas:</h2>
   <button (click)="addNewMovie()">Añadir Película</button>
-  <br>
+  <br />
   <button (click)="toggleMovies()">
-    @if (showMovies) {
-      Ocultar Películas
-    } @else {
-      Mostrar Películas
-    }
+    @if (showMovies) { Ocultar Películas } @else { Mostrar Películas }
   </button>
 
   @if (showMovies) {
-    <ul>
-      @for (movie of movies; track movie.id) {
-      <li>
-        <app-movie-card
-          [movie]="movie"
-          (messageSent)="receiveMsg($event)"
-          (watchlistChange)="toggleWatchlist($event)"
-        ></app-movie-card>
-      </li>
-      }
-    </ul>
+  <ul>
+    @for (movie of movies; track movie.id) {
+    <li>
+      <app-movie-card
+        [movie]="movie"
+        (messageSent)="receiveMsg($event)"
+        (watchlistChange)="toggleWatchlist($event)"
+      ></app-movie-card>
+    </li>
+    }
+  </ul>
   }
 </section>
+
+<section class="movie-form">
+  <h2>Crea tu película</h2>
+
+  <form (ngSubmit)="handleSubmit()">
+    <fieldset>
+      <label for="title">Título: </label>
+      <input type="text" id="title" name="title" [(ngModel)]="newMovie.title" />
+    </fieldset>
+
+    <fieldset>
+      <label for="duration">Duración: </label>
+      <input
+        type="number"
+        id="duration"
+        name="duration"
+        [(ngModel)]="newMovie.duration"
+      />
+    </fieldset>
+
+    <fieldset>
+      <label for="director">Director: </label>
+      <input
+        type="text"
+        id="director"
+        name="director"
+        [(ngModel)]="newMovie.director"
+      />
+    </fieldset>
+
+    <fieldset>
+      <label for="img">Imagen: </label>
+      <input type="text" id="img" name="img" [(ngModel)]="newMovie.img" />
+    </fieldset>
+
+    <button>Crear Película</button>
+  </form>
+</section>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
