@@ -16,14 +16,6 @@ export class MovieListComponent implements OnInit {
   myClass: string[] = ["highlighted", "big"];
   isDark: boolean = false;
 
-  movieTitle: string = "";
-  newMovie: any = {
-    title: "",
-    duration: 0,
-    director: "",
-    img: ""
-  }
-
    constructor() {
     console.log("Mensaje desde el constructor");
     
@@ -70,15 +62,8 @@ export class MovieListComponent implements OnInit {
     }
   }
 
-  addNewMovie() {
-    this.movies.push({
-      id: 4,
-      title: "Dune",
-      duration: 200,
-      director: "Denis Villeneuve",
-      img: "https://m.media-amazon.com/images/I/61eBiE82dDL._AC_UF1000,1000_QL80_.jpg",
-      isWatchlist: false
-    })
+  addNewMovie(movie: Movie) {
+    this.movies.push({...movie})
   }
 
   toggleMovies() {
@@ -89,11 +74,27 @@ export class MovieListComponent implements OnInit {
     this.isDark = !this.isDark;
   }
 
+
+
+
+  newMovie: Movie = {
+    id: 0,
+    title: "",
+    duration: 0,
+    director: "",
+    img: "",
+    isWatchlist: false
+  }
+
   handleSubmit() {
     console.log(this.newMovie);
-    // this.newMovie.title = "";
-    // this.newMovie.duration = 0;
-    // this.newMovie.director = "";
-    // this.newMovie.img = "";
+
+    this.newMovie.id = this.movies.length + 1;
+    this.addNewMovie(this.newMovie);
+
+    this.newMovie.title = "";
+    this.newMovie.duration = 0;
+    this.newMovie.director = "";
+    this.newMovie.img = "";
   }
 }

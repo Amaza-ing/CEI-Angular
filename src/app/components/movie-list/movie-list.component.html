@@ -3,8 +3,6 @@
     @if (isDark) { 🌞 } @else { 🌑 }
   </span>
   <h2 [ngClass]="myClass">Lista de Películas:</h2>
-  <button (click)="addNewMovie()">Añadir Película</button>
-  <br />
   <button (click)="toggleMovies()">
     @if (showMovies) { Ocultar Películas } @else { Mostrar Películas }
   </button>

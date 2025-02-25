@@ -24,4 +24,18 @@ export class ParentComponent {
     pages: 150,
     author: "George Orwell"
   }
+
+  applyCondition() {
+    const age = 20;
+
+    // let message;
+    // 
+    // if (age >= 18) {
+    //   message = "Eres mayor de edad";
+    // } else {
+    //   message = "Eres menor de edad";
+    // }
+
+    let message = age >= 18 ? "Eres mayor de edad" : "Eres menor de edad";
+  }
 }
