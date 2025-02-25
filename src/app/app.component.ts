@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from './components/header/header.component';
 import { ParentComponent } from "./components/parent/parent.component";
-import { MovieListComponent } from "./components/movie-list/movie-list.component";
+import { MovieListComponent } from "./components/movie/movie-list/movie-list.component";
 import { NewsSectionComponent } from './components/news-section/news-section.component';
 
 

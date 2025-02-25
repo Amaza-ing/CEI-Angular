@@ -1,27 +1,3 @@
-<section class="movie-list" [ngClass]="{ dark: isDark, big: false }">
-  <span class="btn" (click)="toggleDark()">
-    @if (isDark) { 🌞 } @else { 🌑 }
-  </span>
-  <h2 [ngClass]="myClass">Lista de Películas:</h2>
-  <button (click)="toggleMovies()">
-    @if (showMovies) { Ocultar Películas } @else { Mostrar Películas }
-  </button>
-
-  @if (showMovies) {
-  <ul>
-    @for (movie of movies; track movie.id) {
-    <li>
-      <app-movie-card
-        [movie]="movie"
-        (messageSent)="receiveMsg($event)"
-        (watchlistChange)="toggleWatchlist($event)"
-      ></app-movie-card>
-    </li>
-    }
-  </ul>
-  }
-</section>
-
 <section class="movie-form">
   <h2>Crea tu película</h2>
 
@@ -59,12 +35,3 @@
     <button>Crear Película</button>
   </form>
 </section>
-
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />

@@ -8,7 +8,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { Movie } from '../../models/Movie';
+import { Movie } from '../../../models/Movie';
 
 @Component({
   selector: 'app-movie-card',

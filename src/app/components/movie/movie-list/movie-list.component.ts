@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieCardComponent } from "../movie-card/movie-card.component";
-import { Movie } from '../../models/Movie';
+import { Movie } from '../../../models/Movie';
 import { NgClass } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { MovieFormComponent } from "../movie-form/movie-form.component";
 
 @Component({
   selector: 'app-movie-list',
-  imports: [MovieCardComponent, NgClass, FormsModule],
+  imports: [MovieCardComponent, NgClass, MovieFormComponent],
   templateUrl: './movie-list.component.html',
   styleUrl: './movie-list.component.css'
 })
@@ -72,29 +72,5 @@ export class MovieListComponent implements OnInit {
 
   toggleDark() {
     this.isDark = !this.isDark;
-  }
-
-
-
-
-  newMovie: Movie = {
-    id: 0,
-    title: "",
-    duration: 0,
-    director: "",
-    img: "",
-    isWatchlist: false
-  }
-
-  handleSubmit() {
-    console.log(this.newMovie);
-
-    this.newMovie.id = this.movies.length + 1;
-    this.addNewMovie(this.newMovie);
-
-    this.newMovie.title = "";
-    this.newMovie.duration = 0;
-    this.newMovie.director = "";
-    this.newMovie.img = "";
   }
 }
