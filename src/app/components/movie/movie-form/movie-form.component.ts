@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class MovieFormComponent {
   @Input()
-  moviesLenght: number = 0;
+  moviesLength: number = 0;
 
   movieCreated = output<Movie>();
 
@@ -23,15 +23,26 @@ export class MovieFormComponent {
     isWatchlist: false,
   };
 
+  errorMsg: string = "";
+
   handleSubmit() {
     console.log(this.newMovie);
 
-    this.newMovie.id = this.moviesLenght + 1;
+    if(!this.newMovie.title) {
+      this.errorMsg = "*Las películas deben tener un título";
+      return;
+    } else if(!this.newMovie.duration) {
+      this.errorMsg = "*Las películas deben tener duración";
+      return;
+    }
+
+    this.newMovie.id = this.moviesLength + 1;
     this.movieCreated.emit(this.newMovie);
 
     this.newMovie.title = '';
     this.newMovie.duration = 0;
     this.newMovie.director = '';
     this.newMovie.img = '';
+    this.errorMsg = "";
   }
 }
