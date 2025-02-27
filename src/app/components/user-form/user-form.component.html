@@ -18,6 +18,11 @@
       }
     </fieldset>
 
+    <fieldset>
+      <label for="is-active">Usuario Activo</label>
+      <input type="checkbox" id="is-active" formControlName="isActive">
+    </fieldset>
+
     <button [disabled]="userForm.invalid">Crear Usuario</button>
   </form>
 </section>
