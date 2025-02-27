@@ -1,0 +1,7 @@
+<ul>
+  @for (user of userService.users; track user.email) {
+    <app-user-card [user]="user"></app-user-card>
+  }
+</ul>
+
+<button (click)="userService.addUser()">Añadir Usuario</button>

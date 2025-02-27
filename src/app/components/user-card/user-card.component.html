@@ -1,0 +1,11 @@
+<article class="user-card" [ngClass]="{active: user.isActive}">
+  <h3>{{ user.name }}</h3>
+  <p>{{ user.email }}</p>
+  <button (click)="userService.toggleActive(user.email)">
+    @if (user.isActive) {
+      Desactivar
+    } @else {
+      Activar
+    }
+  </button>
+</article>
