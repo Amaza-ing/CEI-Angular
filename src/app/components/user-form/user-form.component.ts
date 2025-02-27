@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { User } from '../../models/User';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-user-form',
@@ -20,19 +21,17 @@ export class UserFormComponent implements OnInit {
     isActive: new FormControl(false),
   });
 
+  constructor(public userService: UserService) {}
+
   ngOnInit(): void {
     // this.userForm.valueChanges.subscribe((value) => {
     //   console.log("Cambio detectado: ", value);
     // })
   }
 
-  displayUser(user: User) {
-    console.log('User: ', user);
-  }
-
   submitForm() {
     const user: User = this.userForm.value as User;
-    this.displayUser(user);
+    this.userService.addUser(user);
 
     this.userForm.reset();
   }

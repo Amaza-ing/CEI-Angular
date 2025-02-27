@@ -23,14 +23,10 @@ export class UserService {
     },
   ]
 
-  addUser() {
-    const newUser: User = {
-      name: "David",
-      email: "david@email.com",
-      isActive: false
-    }
+  constructor() { }
 
-    this.users.push(newUser);
+  addUser(newUser: User) {
+    this.users.push({...newUser});
   }
 
   toggleActive(email: string) {
@@ -40,6 +36,4 @@ export class UserService {
       selectedUser.isActive = !selectedUser.isActive;
     }
   }
-
-  constructor() { }
 }
