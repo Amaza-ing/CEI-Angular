@@ -1,3 +1,8 @@
 <app-header></app-header>
 
-<h2>User email: {{ userEmail }}</h2>
+@if (userDetails) {
+  <app-user-card [user]="userDetails"></app-user-card>
+  <h3>Descripcion: {{ userDetails.description }}</h3>
+} @else {
+  <h2>No existe ningún usuario con ese email</h2>
+}

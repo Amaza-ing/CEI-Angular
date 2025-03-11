@@ -15,7 +15,8 @@ export class UserCardComponent {
   user: User = {
     name: "",
     email: "",
-    isActive: false
+    isActive: false,
+    description: ""
   }
 
   constructor(public userService: UserService) {}

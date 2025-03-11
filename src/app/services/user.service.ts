@@ -9,17 +9,20 @@ export class UserService {
     {
       name: "María López",
       email: "marialopez@email.com",
-      isActive: true
+      isActive: true,
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, repudiandae."
     },
     {
       name: "Alberto García",
       email: "alberto@email.com",
-      isActive: false
+      isActive: false,
+      description: "asdfasdfa Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, repudiandae."
     },
     {
       name: "Carlos Garrido",
       email: "carlos@email.com",
-      isActive: true
+      isActive: true,
+      description: "Lorasdfasdfem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, repudiandae."
     },
   ]
 
@@ -35,5 +38,9 @@ export class UserService {
     if (selectedUser) {
       selectedUser.isActive = !selectedUser.isActive;
     }
+  }
+
+  getUserDetails(email: string) {
+    return this.users.find((user) => user.email === email)
   }
 }
