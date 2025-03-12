@@ -4,6 +4,7 @@ import { UserPageComponent } from './pages/user-page/user-page.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { CommentsPageComponent } from './pages/comments-page/comments-page.component';
+import { CommentDetailsComponent } from './pages/comment-details/comment-details.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,10 @@ export const routes: Routes = [
   {
     path: "comments",
     component: CommentsPageComponent
+  },
+  {
+    path: "comments/:id",
+    component: CommentDetailsComponent
   },
   {
     path: "**",

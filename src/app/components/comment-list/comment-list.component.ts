@@ -9,6 +9,8 @@ import { CommentCardComponent } from '../comment-card/comment-card.component';
   styleUrl: './comment-list.component.css',
 })
 export class CommentListComponent implements OnInit {
+  hasError: boolean = false;
+
   constructor(public commentService: CommentService) {}
 
   ngOnInit(): void {
@@ -23,6 +25,7 @@ export class CommentListComponent implements OnInit {
       },
       error: (e) => {
         console.log(e);
+        this.hasError = true;
       },
     });
   }

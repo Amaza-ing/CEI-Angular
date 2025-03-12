@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CommentService {
-  readonly API_URL = "https://jsonplaceholder.typicode.com/comments";
+  private readonly API_URL = "https://jsonplaceholder.typicode.com/comments";
 
   comments: any[];
 
@@ -16,5 +16,9 @@ export class CommentService {
 
   getComments() {
     return this.http.get<any[]>(this.API_URL);
+  }
+
+  getCommentById(id: string) {
+    return this.http.get<any>(`${this.API_URL}/${id}`)
   }
 }
