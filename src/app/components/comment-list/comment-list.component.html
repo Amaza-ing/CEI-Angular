@@ -1,0 +1,11 @@
+@if (!commentService.comments.length) {
+  <h3>No hay ningún comentario</h3>
+}
+
+@for (comment of commentService.comments; track comment.id) {
+  <ul class="comment-list">
+    <li>
+      <app-comment-card [comment]="comment"></app-comment-card>
+    </li>
+  </ul>
+}
