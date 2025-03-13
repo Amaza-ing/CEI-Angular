@@ -1,11 +1,10 @@
-@if (hasError) {
+@if (!hasLoaded) {
+<h3>Cargando...</h3>
+} @else if (hasError) {
 <h3>Ha habido un error de conexión con la API</h3>
+} @else if (!commentService.comments.length) {
+<h3>No hay ningún comentario</h3>
 } @else {
-
-  @if (!commentService.comments.length) {
-  <h3>No hay ningún comentario</h3>
-  }
-
 <ul class="comment-list">
   @for (comment of commentService.comments; track comment.id) {
   <li>

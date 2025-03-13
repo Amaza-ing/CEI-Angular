@@ -10,6 +10,7 @@ import { CommentCardComponent } from '../comment-card/comment-card.component';
 })
 export class CommentListComponent implements OnInit {
   hasError: boolean = false;
+  hasLoaded: boolean = false;
 
   constructor(public commentService: CommentService) {}
 
@@ -22,10 +23,14 @@ export class CommentListComponent implements OnInit {
       next: (data) => {
         console.log(data);
         this.commentService.comments = data;
+
+        this.hasError = false;
+        this.hasLoaded = true;
       },
       error: (e) => {
         console.log(e);
         this.hasError = true;
+        this.hasLoaded = true;
       },
     });
   }
